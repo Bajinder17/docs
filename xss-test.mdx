@@ -1,0 +1,22 @@
+---
+title: "XSS Test"
+description: "rendered xss probe"
+---
+
+XSSPROBESTART
+
+<img src="x" onerror="alert('XSSIMG-'+document.domain)" data-marker="imgerr" />
+
+<svg onload="alert('XSSSVG-'+document.domain)" data-marker="svgload" />
+
+<a href="javascript:alert('XSSAHREF')" data-marker="ahref">linkA</a>
+
+<details open ontoggle="alert('XSSDETAILS')" data-marker="dets"><summary>open</summary>body</details>
+
+<iframe src="javascript:alert('XSSIFRAME')" data-marker="iframe" />
+
+<p data-marker="onmouse" onmouseover="alert('XSSMOUSE')">hover me</p>
+
+[mdlinkjs](javascript:alert('XSSMDLINK'))
+
+XSSPROBEEND
